@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Editable.page - Open Source Headless CMS for Flexible Frontend Development</title>
+    <link rel="icon" href="/favicon.png" type="image/png" />
+    <meta
+      name="description"
+      content="Editable.page is an open source Headless CMS that allows you to build your frontend application using your favorite technology while enabling easy content management."
+    />
+    <meta
+      name="keywords"
+      content="Headless CMS, Open Source, Content Management, Frontend Development, Flexible, Fast, Customizable"
+    />
+    <meta property="og:title" content="Editable.page - Open Source Headless CMS for Flexible Frontend Development" />
+    <meta
+      property="og:description"
+      content="Build your frontend with any technology and manage content easily with Editable.page, an open source, flexible and fast Headless CMS."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://editable.page" />
+    <meta property="og:image" content="https://editable.page/og-image.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Editable.page - Open Source Headless CMS for Flexible Frontend Development" />
+    <meta
+      name="twitter:description"
+      content="Build your frontend with any technology and manage content easily with Editable.page, an open source, flexible and fast Headless CMS."
+    />
+    <meta name="twitter:image" content="https://editable.page/twitter-image.jpg" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+        font-family: "Poppins", sans-serif;
+        background: #0a0a0a;
+        color: #fff;
+        overflow: hidden;
+      }
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        box-sizing: border-box;
+        min-height: 100%;
+      }
+      #particles-js {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        z-index: 0;
+      }
+      .container {
+        text-align: center;
+        padding: 40px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        animation: fadeIn 1s ease-out;
+        max-width: 650px;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+        box-sizing: border-box;
+      }
+      .content {
+        position: relative;
+        z-index: 1;
+      }
+      .logo {
+        font-size: 3.5rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+        color: #fff;
+        text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff;
+        animation: pulse 2s infinite;
+      }
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+        color: #fff;
+      }
+      p {
+        font-size: 1.1rem;
+        margin: 0 0.5rem 2rem;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.9);
+      }
+      .github-button {
+        display: inline-flex;
+        align-items: center;
+        padding: 12px 24px;
+        background-color: #00ffff;
+        color: #1a1a1a;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 10px #00ffff;
+      }
+      .github-button:hover {
+        background-color: #fff;
+        color: #1a1a1a;
+        transform: translateY(-2px);
+        box-shadow: 0 0 20px #00ffff;
+      }
+      .github-button:active {
+        transform: translateY(1px);
+      }
+      .github-button i {
+        margin-right: 8px;
+      }
+      .features {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 2rem;
+      }
+      .feature {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        font-size: 0.9rem;
+        width: 64px;
+      }
+      .feature i {
+        font-size: 2rem;
+        margin-bottom: 0.5rem;
+        color: #00ffff;
+        transition: transform 0.3s ease;
+      }
+      .feature:hover i {
+        transform: scale(1.1);
+      }
+      .cursor {
+        display: inline-block;
+        width: 3px;
+        height: 1.2em;
+        background-color: #00ffff;
+        animation: blink 0.7s infinite;
+        vertical-align: middle;
+        margin-left: 5px;
+      }
+      @keyframes blink {
+        0%,
+        100% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff;
+        }
+        50% {
+          text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 40px #00ffff, 0 0 80px #00ffff;
+        }
+      }
+      @media (max-width: 768px) {
+        .container {
+          padding: 30px 20px;
+        }
+        .logo {
+          font-size: 2.8rem;
+        }
+        p {
+          font-size: 1rem; 
+        }
+        .feature {
+          flex-basis: calc(50% - 1.5rem);
+          margin-bottom: 0;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .container {
+          padding: 25px 15px;
+        }
+        .logo {
+          font-size: 2.2rem;
+        }
+        .features {
+          flex-direction: row;
+          flex-wrap: wrap;
+          justify-content: center;
+          gap: 1.5rem;
+        }
+        .feature {
+          font-size: 0.8rem;
+        }
+        .feature i {
+          font-size: 1.5rem;
+        }
+        p {
+          font-size: 0.9rem;
+          margin-bottom: 1.8rem;
+        }
+        .github-button {
+          padding: 12px 24px;
+          font-size: 1rem;
+          width: 100%;
+          justify-content: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="particles-js"></div>
+    <div class="container">
+      <div class="content">
+        <div class="logo">Editable.page<span class="cursor"></span></div>
+        <p>
+          An open source headless CMS that will allow you to create your frontend application using your favorite
+          technology, while allowing others to easily edit the content.
+        </p>
+        <div class="features">
+          <div class="feature">
+            <i class="fas fa-code-branch"></i>
+            <span>Flexible</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-bolt"></i>
+            <span>Fast</span>
+          </div>
+          <div class="feature">
+            <i class="fas fa-paint-brush"></i>
+            <span>Customizable</span>
+          </div>
+        </div>
+        <a href="https://github.com/miguel-ra/editable" class="github-button" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-github"></i> Star on GitHub
+        </a>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+      particlesJS("particles-js", {
+        particles: {
+          number: {
+            value: 80,
+            density: {
+              enable: true,
+              value_area: 800,
+            },
+          },
+          color: {
+            value: "#00ffff",
+          },
+          shape: {
+            type: "circle",
+            stroke: {
+              width: 0,
+              color: "#000000",
+            },
+            polygon: {
+              nb_sides: 5,
+            },
+          },
+          opacity: {
+            value: 0.5,
+            random: false,
+            anim: {
+              enable: false,
+              speed: 1,
+              opacity_min: 0.1,
+              sync: false,
+            },
+          },
+          size: {
+            value: 3,
+            random: true,
+            anim: {
+              enable: false,
+              speed: 40,
+              size_min: 0.1,
+              sync: false,
+            },
+          },
+          line_linked: {
+            enable: true,
+            distance: 150,
+            color: "#00ffff",
+            opacity: 0.4,
+            width: 1,
+          },
+          move: {
+            enable: true,
+            speed: 6,
+            direction: "none",
+            random: false,
+            straight: false,
+            out_mode: "out",
+            bounce: false,
+            attract: {
+              enable: false,
+              rotateX: 600,
+              rotateY: 1200,
+            },
+          },
+        },
+        interactivity: {
+          detect_on: "canvas",
+          events: {
+            onhover: {
+              enable: true,
+              mode: "repulse",
+            },
+            onclick: {
+              enable: true,
+              mode: "push",
+            },
+            resize: true,
+          },
+          modes: {
+            grab: {
+              distance: 400,
+              line_linked: {
+                opacity: 1,
+              },
+            },
+            bubble: {
+              distance: 400,
+              size: 40,
+              duration: 2,
+              opacity: 8,
+              speed: 3,
+            },
+            repulse: {
+              distance: 200,
+              duration: 0.4,
+            },
+            push: {
+              particles_nb: 4,
+            },
+            remove: {
+              particles_nb: 2,
+            },
+          },
+        },
+        retina_detect: true,
+        responsive: [
+          {
+            breakpoint: 768,
+            options: {
+              particles: {
+                number: {
+                  value: 50,
+                },
+                size: {
+                  value: 2,
+                },
+              },
+            },
+          },
+          {
+            breakpoint: 480,
+            options: {
+              particles: {
+                number: {
+                  value: 30,
+                },
+                size: {
+                  value: 1.5,
+                },
+              },
+            },
+          },
+        ],
+      });
+    </script>
+  </body>
+</html>
